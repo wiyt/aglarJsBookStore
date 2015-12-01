@@ -1,0 +1,36 @@
+<h3>重磅推荐
+<button id="list-style" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-th-list"></span>"
+</button>
+</h3>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>类别</th>
+        <th>出版社</th>
+        <th>出版时间</th>
+        <th>价钱</th>
+    </tr>
+    <tr ng-repeat="book in books">
+        <td>
+            <img src="{{book.imgurl}}">
+            <a ui-sref="edit"><button class="edit btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            </a>
+            <button class="delete btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </td>
+        <td>
+            <a class="booksdetail" href>{{book.name}}</a>
+        </td>
+        <td> {{book.author}} </td>
+        <td> {{book.category}} </td>
+        <td> {{book.publish}} </td>
+        <td> {{book.pubTime}} </td>
+        <td> {{book.bPrice}} </td>
+    </tr>
+</table>

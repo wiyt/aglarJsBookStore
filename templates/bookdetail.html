@@ -1,0 +1,43 @@
+<div ng-controller="bookDetail" class="row">
+    <div class="col-md-4 img-box">
+        <img class="img" src="{{book.imgurl}}" alt="">
+    </div>
+    <div class="col-md-8 detail-box">
+        <p>
+            书名：<span class="bookName">{{book.name}}</span>
+        </p>
+        <p>
+            语言：<span class="lang">{{book.lang}}</span>
+        </p>
+        <p>
+            出版社：<span class="publish">{{book.publish}}</span>
+        </p>
+        <p>
+            类型：<span class="category">{{book.category}}</span>
+        </p>
+        <p>出版日期：<span class="pubTime">{{book.pubTime}}</span></p>
+        <p>价格：¥<span class="price">{{book.price}}</span></p>
+    </div>
+    <div id="homepage">
+    <a ui-sref="index" class="btn btn-lg"><span class="glyphicon glyphicon-home"></span>返回</a>
+</div>
+</div>
+<hr>
+<div class="intro">
+    <h3>编辑推荐</h3>
+    <blockquote class="abtract">
+        {{bookIntro.abtract}}
+    </blockquote>
+    <h3>内容推荐</h3>
+    <p class="content">
+        {{bookIntro.content}}
+    </p>
+    <h3>作者简介</h3>
+    <p class="authorintro">
+        {{bookIntro.authorintro}}
+    </p>
+    <h3>目录</h3>
+    <p class="catalog">
+        {{bookIntro.catalog}}
+    </p>
+</div>

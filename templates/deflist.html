@@ -1,0 +1,26 @@
+<h3>重磅推荐
+<button id="list-style" class="btn btn-default btn-xs">
+        <span class="glyphicon glyphicon-th-list"></span>"
+</button>
+</h3>
+<div class="row" ng-controller="deflistCtrl">
+    <div class="book col-sm-6 col-md-3" ng-repeat="book in books">
+        <div class="b-img">
+            <img src="{{book.imgurl}}">
+            <br>
+            <a ui-sref="edit({bookID: book.bookID})"><button class="edit btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            </a>
+            <button class="delete btn btn-default btn-xs">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </div>
+        <div class="b-name">
+            <a class="booksdetail" ui-sref="detail({bookID:book.bookID})" bookID="{{book.bookID}}">{{book.name}}</a>
+        </div>
+        <div class="b-price">
+            <span class="price">{{book.price}}</span>
+        </div>
+    </div>
+</div>
