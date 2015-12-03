@@ -1,40 +1,42 @@
-<form class="form-horizontal">
+<form class="form-horizontal" ng-controller="formCtrl" name="form" ng-submit="submit()">
     <div class="form-group">
         <label for="bookName" class="col-sm-2 control-label">书名</label>
         <div class="col-sm-10">
-            <input class="form-control" type="text" id="bookName">
-            <div id="bkn-null" class="alert alert-danger" role="alert">书名不可为空</div>
-            <div id='bkn-len' class="alert alert-danger" role="alert">书名过15个字</div>
+            <input class="form-control" type="text" name="bookName" id="bookName" ng-model="book.name" required ng-maxlength="15">
+            <div ng-show="form.bookName.$error.required" id="bkn-null" class="alert alert-danger" role="alert">书名不可为空</div>
+            <div ng-show="form.bookName.$error.maxlength" id='bkn-len' class="alert alert-danger" role="alert">书名过15个字</div>
         </div>
     </div>
     <div class="form-group">
         <label for="author" class="col-sm-2 control-label">作者</label>
         <div class="col-sm-10">
-            <input type="text" id="author" class="form-control">
-            <div id='auth-null' class="alert alert-danger" role="alert">作者不可为空</div>
-            <div id="auth-len" class="alert alert-danger" role="alert">作者名过15个字</div>
+            <input type="text" name="author"id="author" class="form-control" ng-model="book.author" required ng-maxlength="15">
+            <div ng-show="form.author.$error.required" id='auth-null' class="alert alert-danger" role="alert">作者不可为空</div>
+            <div ng-show="form.author.$error.maxlength" id="auth-len" class="alert alert-danger" role="alert">作者名过15个字</div>
         </div>
     </div>
     <div class="form-group">
         <label for="publish" class="col-sm-2 control-label">出版社</label>
         <div class="col-sm-10">
-            <select name="publish" id="publish" class="form-control">
+            <select name="publish" id="publish" class="form-control" ng-model="book.publish" required>
+                <option value="{{book.publish}}">{{book.publish}}</option>
+                <option value="{{publish}}" ng-repeat="publish in publishs">{{publish}}</option>
             </select>
-            <div id='publish-null' class="alert alert-danger" role="alert">请选择一个出版社</div>
+            <div ng-show="form.publish.$error.required" id='publish-null' class="alert alert-danger" role="alert">请选择一个出版社</div>
         </div>
     </div>
     <div class="form-group">
         <label for="img" class="col-sm-2 control-label">封面</label>
         <div class="col-sm-10">
-            <input type="file" id="img" class="form-control col-sm-8">
+            <input type="file" name="img" id="img" class="form-control col-sm-8">
             <button class="btn btn-default col-sm-2">上传</button>
-            <div id='img-null' class="alert alert-danger" role="alert">请选择一张图片</div>
+            <div ng-show="form.img.$error.required" id='img-null' class="alert alert-danger" role="alert">请选择一张图片</div>
         </div>
     </div>
     <div class="from-group">
         <div class="col-sm-offset-2">
-            <button id="commit" type="submit" class="btn btn-default">确定</button>
-            <button id="cancel" type="botton" class="btn btn-default">取消</button>
+            <button  id="commit" type="submit" class="btn btn-default">确定</button>
+            <button ng-click="cancel()" id="cancel" type="botton" class="btn btn-default">取消</button>
         </div>
     </div>
 </form>

@@ -9,54 +9,72 @@ ul {
 .b-name {
     margin: 20px 0;
 }
-.detail-box p{
+
+.detail-box p {
     height: 30px;
     line-height: 30px;
 }
-.intro p{
+
+.intro p {
     text-indent: 2em;
 }
-img{
+
+img {
     width: 130px;
+    height: 130px;
 }
-.head>.nav{
+
+.head>.nav {
     position: relative;
 }
-.searchBox{
+
+.searchBox {
     position: absolute;
     top: 3px;
     right: 0;
 }
-.searchBox form{
+
+.searchBox form {
     float: left;
     margin-right: 5px;
     margin-top: 4px;
 }
-#homepage{
+
+#homepage {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000px;
 }
-#list-style{
+
+#list-style {
     margin-left: 5px;
     margin-bottom: 4px;
 }
-#style2 .img-box{
+
+#style2 .img-box {
     float: left;
 }
-#style2 .detail-box p{
+
+#style2 .detail-box p {
     height: 20px;
     line-height: 20px;
 }
-#style2 .detail-box .content{
+
+#style2 .detail-box .content {
     height: 40px;
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
-.table img{
+
+.table img {
     width: 60px;
 }
-.alert-danger{
+
+/*.alert-danger {
     display: none;
+}*/
+
+.book {
+    margin-bottom: 40px;
 }

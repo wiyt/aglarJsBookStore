@@ -1,4 +1,4 @@
-<div ng-controller="bookDetail" class="row">
+<div ng-controller="bookDetailCtrl" class="row">
     <div class="col-md-4 img-box">
         <img class="img" src="{{book.imgurl}}" alt="">
     </div>
@@ -19,25 +19,25 @@
         <p>价格：¥<span class="price">{{book.price}}</span></p>
     </div>
     <div id="homepage">
-    <a ui-sref="index" class="btn btn-lg"><span class="glyphicon glyphicon-home"></span>返回</a>
-</div>
-</div>
-<hr>
-<div class="intro">
-    <h3>编辑推荐</h3>
-    <blockquote class="abtract">
-        {{bookIntro.abtract}}
-    </blockquote>
-    <h3>内容推荐</h3>
-    <p class="content">
-        {{bookIntro.content}}
-    </p>
-    <h3>作者简介</h3>
-    <p class="authorintro">
-        {{bookIntro.authorintro}}
-    </p>
-    <h3>目录</h3>
-    <p class="catalog">
-        {{bookIntro.catalog}}
-    </p>
+        <a ui-sref="index" class="btn btn-lg"><span class="glyphicon glyphicon-home"></span>返回</a>
+    </div>
+    <hr>
+    <div class="intro">
+        <h3>编辑推荐</h3>
+        <blockquote class="abtract">
+            {{bookIntro.abtract}}
+        </blockquote>
+        <h3>内容推荐</h3>
+        <p class="content">
+            {{bookIntro.content}}
+        </p>
+        <h3>作者简介</h3>
+        <p class="authorintro">
+            {{bookIntro.authorintro}}
+        </p>
+        <h3>目录</h3>
+        <p class="catalog">
+            {{bookIntro.catalog}}
+        </p>
+    </div>
 </div>
