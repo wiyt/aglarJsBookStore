@@ -1,18 +1,14 @@
-bookstore.factory('getJson', function($http, $q) {
+bookstore.factory('getJsonService', ['$http', function($http) {
+    var getJson = function(path) {
+        return $http({
+            method: 'GET',
+            url: path,
+            cache: true //对get请求进行缓存
+        });
+    };
     return {
-        books: function() {
-            var deferred = $q.defer();
-            $http({
-                method: 'GET',
-                url: 'books.json'
-            }).then(function successCallback(response) {
-                var books = response.data.books;
-                deferred.resolve(books);
-            }, function errorCallback(response) {
-                deferred.reject('get books.json error!');
-            });
-            return deferred.promise;
+        get: function(path) {
+            return getJson(path)
         }
-    }
-});
-
+    };
+}]);

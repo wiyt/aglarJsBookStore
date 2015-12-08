@@ -1,25 +1,6 @@
 <div ng-controller="listCtrl">
     <div ng-show="isShow" class="row def">
-        <div class="book col-sm-6 col-md-3" ng-repeat="book in books | searchBook:keyword">
-            <div class="b-img">
-                <img src="{{book.imgurl}}">
-                <br>
-                <a ui-sref="edit({bookID: book.bookID})">
-                    <button class="edit btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                </a>
-                <button ng-click="del(book.bookID)" class="delete btn btn-default btn-xs delbook">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-            </div>
-            <div class="b-name">
-                <a class="booksdetail" ui-sref="detail({bookID:book.bookID})" bookID="{{book.bookID}}">{{book.name}}</a>
-            </div>
-            <div class="b-price">
-                <span class="price">¥：{{book.price}}</span>
-            </div>
-        </div>
+        <div my-bookbox ng-repeat="book in books | filter:keyword"></div>
     </div>
     <table ng-hide="isShow" class="table">
         <tr>
@@ -31,26 +12,6 @@
             <th>出版时间</th>
             <th>价钱</th>
         </tr>
-        <tr ng-repeat="book in books | filter:keyword">
-            <td>
-                <img src="{{book.imgurl}}">
-                <a ui-sref="edit({bookID: book.bookID})">
-                    <button class="edit btn btn-default btn-xs">
-                        <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                </a>
-                <button ng-click="del(book.bookID)" class="delete btn btn-default btn-xs delbook">
-                    <span class="glyphicon glyphicon-minus"></span>
-                </button>
-            </td>
-            <td>
-                <a class="booksdetail" ui-sref="detail({bookID:book.bookID})" bookID="{{book.bookID}}">{{book.name}}</a>
-            </td>
-            <td> {{book.author}} </td>
-            <td> {{book.category}} </td>
-            <td> {{book.publish}} </td>
-            <td> {{book.pubTime}} </td>
-            <td> {{book.price}} </td>
-        </tr>
+        <tr my-booklist ng-repeat="book in books | filter:keyword"></tr>
     </table>
 </div>

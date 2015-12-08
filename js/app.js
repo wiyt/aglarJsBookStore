@@ -1,19 +1,14 @@
 var bookstore = angular.module('bookstore', ['ui.router']);
 
-bookstore.run(function($rootScope, $state, $stateParams, getJson) {
+bookstore.run(function($rootScope, $state, $stateParams, getJsonService) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-    var promise = getJson.books();
-    promise.then(function(date) {
-        $rootScope.books = date;
-    }, function() {
-        console.log("失败");
-    })
 });
 
 // filter
 bookstore.filter('searchBook', function() {
     return function(bookList, keyword) {
+        console.log(bookList);
         var reg = new RegExp(keyword);
         var output = [];
         for (var i = 0; i < bookList.length; i++) {

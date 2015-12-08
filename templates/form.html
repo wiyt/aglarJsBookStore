@@ -1,18 +1,18 @@
-<form class="form-horizontal" ng-controller="formCtrl" name="form" ng-submit="submit()">
+<form class="form-horizontal" ng-controller="formCtrl" name="form" ng-submit="submit()" novalidate>
     <div class="form-group">
         <label for="bookName" class="col-sm-2 control-label">书名</label>
         <div class="col-sm-10">
             <input class="form-control" type="text" name="bookName" id="bookName" ng-model="book.name" required ng-maxlength="15">
-            <div ng-show="form.bookName.$error.required" id="bkn-null" class="alert alert-danger" role="alert">书名不可为空</div>
-            <div ng-show="form.bookName.$error.maxlength" id='bkn-len' class="alert alert-danger" role="alert">书名过15个字</div>
+            <div ng-show="form.bookName.$dirty && form.bookName.$error.required" id="bkn-null" class="alert alert-danger" role="alert">书名不可为空</div>
+            <div ng-show="form.bookName.$dirty && form.bookName.$error.maxlength" id='bkn-len' class="alert alert-danger" role="alert">书名过15个字</div>
         </div>
     </div>
     <div class="form-group">
         <label for="author" class="col-sm-2 control-label">作者</label>
         <div class="col-sm-10">
             <input type="text" name="author"id="author" class="form-control" ng-model="book.author" required ng-maxlength="15">
-            <div ng-show="form.author.$error.required" id='auth-null' class="alert alert-danger" role="alert">作者不可为空</div>
-            <div ng-show="form.author.$error.maxlength" id="auth-len" class="alert alert-danger" role="alert">作者名过15个字</div>
+            <div ng-show="form.author.$dirty && form.author.$error.required" id='auth-null' class="alert alert-danger" role="alert">作者不可为空</div>
+            <div ng-show="form.author.$dirty && form.author.$error.maxlength" id="auth-len" class="alert alert-danger" role="alert">作者名过15个字</div>
         </div>
     </div>
     <div class="form-group">
@@ -22,7 +22,7 @@
                 <option value="{{book.publish}}">{{book.publish}}</option>
                 <option value="{{publish}}" ng-repeat="publish in publishs">{{publish}}</option>
             </select>
-            <div ng-show="form.publish.$error.required" id='publish-null' class="alert alert-danger" role="alert">请选择一个出版社</div>
+            <div ng-show="form.publish.$dirty && form.publish.$error.required" id='publish-null' class="alert alert-danger" role="alert">请选择一个出版社</div>
         </div>
     </div>
     <div class="form-group">
@@ -35,7 +35,7 @@
     </div>
     <div class="from-group">
         <div class="col-sm-offset-2">
-            <button  id="commit" type="submit" class="btn btn-default">确定</button>
+            <button  id="commit" type="submit" ng-disabled="form.$invalid" class="btn btn-default">确定</button>
             <button ng-click="cancel()" id="cancel" type="botton" class="btn btn-default">取消</button>
         </div>
     </div>
